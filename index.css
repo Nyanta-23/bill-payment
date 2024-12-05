@@ -1,0 +1,218 @@
+/*---------------------------------------------INDEX--------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 430px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    padding: 10px 20px;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time {
+    font-weight: 600;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+/* Welcome Section */
+.welcome {
+    margin-bottom: 30px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome-text {
+    color: #666;
+    font-size: 16px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Table Styles */
+.payment-table {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.table-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #007AFF;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Card Styles */
+.action-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.card-text h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-text p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    gap: 4px;
+}
+
+.nav-btn.active {
+    color: #007AFF;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.home-icon {
+    background-image: url('path_to_home_icon.png');
+}
+
+.notifications-icon {
+    background-image: url('path_to_notifications_icon.png');
+}
+
+.profile-icon {
+    background-image: url('path_to_profile_icon.png');
+}
+
+.settings-icon {
+    background-image: url('path_to_settings_icon.png');
+}
+
+/* Responsive Design */
+@media (max-width: 430px) {
+    .container {
+        width: 100%;
+    }
+}
