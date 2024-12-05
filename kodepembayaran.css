@@ -109,6 +109,12 @@
     justify-content: space-between;
 }
 
+#deadline{
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #666;
+}
+
 .countdown {
     color: #0066FF;
     font-weight: 500;
@@ -118,7 +124,6 @@
 .bank-name{
     font-size: 1em;
     font-weight: 600;
-    text-transform: uppercase;
 }
 
 .bank-info {
@@ -338,6 +343,7 @@
     /* justify-content: end; */
     align-items: end;
     font-size: 0.8em;
+    gap: 5px;
   }
 
   

@@ -179,6 +179,10 @@ body {
   margin-bottom: 16px;
 }
 
+.payment-method:nth-child(2){
+  margin-bottom: 200px;
+}
+
 .method-list {
   background: white;
   border-radius: 12px;
@@ -345,6 +349,19 @@ input[type="radio"]:checked {
 .hidden {
   display: none;
 }
+
+/* input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #007aff;
+  border-radius: 5px; 
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+} */
+
 
 input[type="checkbox"]:checked {
   accent-color: #007aff !important;

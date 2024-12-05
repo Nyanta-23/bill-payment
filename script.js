@@ -60,6 +60,29 @@ function flash(title, text, imageUrl) {
 
 }
 
+function methodSelectedText(method) {
+  switch (method) {
+    case 'bca':
+      return 'Bank BCA';
+    case 'bjb':
+      return 'Bank BJB';
+    case 'bni':
+      return 'Bank BNI';
+    case 'mandiri':
+      return 'Bank Mandiri';
+    case 'bri':
+      return 'Bank BRI';
+    case 'ovo':
+      return 'OVO';
+    case 'dana':
+      return 'Dana';
+    case 'gopay':
+      return 'GoPay';
+    case 'shopeepay':
+      return 'ShopeePay';
+  }
+}
+
 function methodSelected(method) {
 
   switch (method) {
@@ -73,5 +96,37 @@ function methodSelected(method) {
       return 'mandiri.jpg';
     case 'bri':
       return 'bri.jpg';
+    case 'ovo':
+      return 'ovo.png';
+    case 'dana':
+      return 'dana.png';
+    case 'gopay':
+      return 'gopay.png';
+    case 'shopeepay':
+      return 'sp.png';
+  }
+}
+
+function codeMethod(method) {
+
+  switch (method) {
+    case 'bca':
+      return '121';
+    case 'bjb':
+      return '122';
+    case 'bni':
+      return '123';
+    case 'mandiri':
+      return '124';
+    case 'bri':
+      return '125';
+    case 'ovo':
+      return '131';
+    case 'dana':
+      return '132';
+    case 'gopay':
+      return '133';
+    case 'shopeepay':
+      return '134';
   }
 }
