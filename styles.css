@@ -210,6 +210,11 @@ body {
 }
 
 /* Payment Method Section */
+
+input[type='radio']{
+  accent-color: #007aff;
+}
+
 .payment-method {
   padding: 20px;
 }
