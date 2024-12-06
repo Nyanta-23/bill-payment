@@ -60,6 +60,51 @@ function flash(title, text, imageUrl) {
 
 }
 
+function waitingPayment(imageUrl, text) {
+  const body = document.body;
+
+  // Buat overlay
+  const overlay = document.createElement('div');
+  overlay.className = "overlay";
+
+  // Buat pop-up
+  const popUp = document.createElement('div');
+  popUp.className = "popup";
+
+  // Isi konten pop-up
+  popUp.innerHTML = `
+  <div class='popup-wrap-img'>
+  <img src="${imageUrl}" alt="Image" class='popup-img'>
+  </div>
+  <h6 class='popup-text'>Menunggu pembayaran</h6>
+    <div class='popup-wrap-text'>
+      ${text}
+    </div>
+    <div class="modal-buttons">
+      <button class='secondary-btn' onClick="goToHome()">Beranda</button>
+      <button class='primary-btn' onClick="goToNotifications()">Nontifikasi</button>
+    </div>
+  `;
+
+  // Tambahkan pop-up ke dalam overlay
+  overlay.appendChild(popUp);
+  body.appendChild(overlay);
+
+  // // Tombol untuk menutup pop-up
+  // const redirectHome = popUp.querySelector('secondary-btn');
+  // console.log(redirectHome);
+  // redirectHome.addEventListener('click', () => {
+  //   body.removeChild(overlay); // Hapus overlay saat tombol OK diklik
+  //   window.location.href = 'index.html';
+  // });
+
+  // const redirectNotif = popUp.querySelector('primary-btn');
+  // redirectNotif.addEventListener('click', () => {
+  //   body.removeChild(overlay); // Hapus overlay saat tombol OK diklik
+  //   window.location.href = 'notifikasi.html';
+  // });
+}
+
 function methodSelectedText(method) {
   switch (method) {
     case 'bca':

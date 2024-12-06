@@ -48,7 +48,7 @@
           </span>
         </div>
       </div>
-      <div class="nav-header">
+      <div class="header">
         <button class="back-button" onclick="history.back()">
           <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="23.5075" cy="21" rx="23.5075" ry="21" fill="#F4F4F4" />
@@ -87,7 +87,7 @@
           </div>
 
           <div class="footer-bank-info">
-            <div class="account-label">No. Rekening</div>
+            <div class="account-label">No. Virtual Akun</div>
             <div class="account-number">
               <span id="virtual-account"></span>
               <button class="copy-btn" onclick="copyAccountNumber()">Salin</button>
@@ -136,7 +136,8 @@
         </div>
       </div>
 
-      <button class="ok-button" onclick="showWaitingModal()">OK</button>
+      <!-- <button class="ok-button" onclick="showWaitingModal()">OK</button> -->
+      <button class="ok-button" id="accept-button">OK</button>
     </main>
 
     <nav class="bottom-nav">
@@ -260,8 +261,16 @@
       const formattedAmount = new Intl.NumberFormat('id-ID').format(parseInt(amount));
 
       document.getElementById('total-amount').textContent = `Rp ${formattedAmount}`;
-      document.getElementById('modal-amount').textContent =
-        `Mohon bayar sebesar Rp${formattedAmount} sebelum 30-02-2024, 17:50. Lihat Notifikasi untuk informasi lebih lanjut.`;
+
+
+      // document.getElementById('modal-amount').textContent =
+      //   `Mohon bayar sebesar Rp${formattedAmount} sebelum 30-02-2024, 17:50. Lihat Notifikasi untuk informasi lebih lanjut.`;
+
+      const getDateDeadline = document.getElementById('deadline').getAttribute('date');
+      let text = `Mohon bayar sebesar Rp.${formattedAmount} sebelum ${getDateDeadline}. Lihat Notifikasi untuk informasi lebih lanjut`
+
+      document.getElementById('accept-button').addEventListener('click', () => waitingPayment('assets/popup.png', text));
+
 
       const method = urlParams.get('method');
 
@@ -290,6 +299,7 @@
       instructions.classList.toggle('active');
       button.classList.toggle('active');
     }
+
     // Fungsi untuk menghitung waktu mundur
     function startCountdown() {
       const countdownElement = document.getElementById('countdown');
@@ -328,10 +338,11 @@
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
-      }); 
+      });
 
       const formattedDate = `${datePart}, ${timePart}`;
 
+      deadline.setAttribute('date', formattedDate);
       deadline.innerText = `Jatuh pada tempo ${formattedDate}`;
 
     }
@@ -346,23 +357,8 @@
 
     // Fungsi untuk menghasilkan nomor virtual account
     function generateVirtualAccount() {
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const method = urlParams.get('method');
-      const areaCode = codeMethod(method);
-
-      let randLocalPhone = Math.round(Math.random() * 100);
-
-      let localPhone = `08${randLocalPhone < 10 || randLocalPhone > 100 ? 10 : randLocalPhone}`;
-
-      let phoneNumber = Math.round(Math.random() * 100000000);
-      const formattedPhoneNumber = phoneNumber.toString();
-      const firstPath = formattedPhoneNumber.substring(0, 4);
-      const secondPart = formattedPhoneNumber.substring(4);
-
-      const virtualAccount = `${areaCode} ${localPhone} ${firstPath} ${secondPart}`;
-
-      document.getElementById('virtual-account').innerText = virtualAccount;
+      const randomAccountNumber = 'VA-' + Math.floor(1000000000 + Math.random() * 9000000000);
+      document.getElementById('virtual-account').innerText = randomAccountNumber;
     }
 
     // Inisialisasi
@@ -420,7 +416,10 @@
     updateNotification();
 
     function showWaitingModal() {
-      document.getElementById('waiting-modal').classList.add('active');
+      // document.getElementById('waiting-modal').classList.add('active');
+
+
+
     }
 
     function goToHome() {
